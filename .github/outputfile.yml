@@ -1,0 +1,26 @@
+name: sc-ops-istio-config-test
+defaults:
+  run:
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference
+    shell: bash -o errexit -o pipefail -o nounset {0}
+
+on:
+  # Merges to main
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Example output creation"
+        id: "my_step"
+        run: |
+          my_var="Hello World"
+          echo "Output [$my_var]"
+          echo "my_var=$my_var" >> $GITHUB_OUTPUT
