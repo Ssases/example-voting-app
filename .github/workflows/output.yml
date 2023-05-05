@@ -1,0 +1,23 @@
+name: Output
+
+on:
+  # Merges to main
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+ 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Example output creation"
+        id: "my_step"
+        run: |
+          my_var="Hello World"
+          echo "Output [$my_var]"
+          echo "my_var=$my_var" >> $GITHUB_OUTPUT
