@@ -1,9 +1,15 @@
 name: Call a reusable workflow and use its outputs
 
 on:
+  # Merges to main
   push:
-     branches:
-       - master
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   job1:
