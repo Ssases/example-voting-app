@@ -13,7 +13,7 @@ on:
 
 jobs:
   job1:
-    uses: Ssases/example-voting-app/.github/workflows/RW.yml@main
+    uses: Ssases/example-voting-app/.github/workflows/RW.yml@master
 
   job2:
     runs-on: ubuntu-latest
