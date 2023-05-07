@@ -6,7 +6,7 @@ on:
     outputs:
       firstword:
         description: "The first output string"
-        value: ${{ jobs.example_job.outputs.GIT_TAG }}
+        value: ${{ jobs.example_job.outputs.output1 }}
         
 jobs:
   example_job:
