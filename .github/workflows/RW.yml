@@ -4,19 +4,19 @@ on:
   workflow_call:
     # Map the workflow outputs to job outputs
     outputs:
-      firstword:
+      computedTag:
         description: "The first output string"
-        value: ${{ jobs.example_job.outputs.output1 }}
+        value: ${{ jobs.tag_manage.outputs.output1 }}
         
 jobs:
-  example_job:
+  tag_manage:
       name: Generate output
       runs-on: ubuntu-latest
       # Map the job outputs to step outputs
       outputs:
-        output1: ${{ steps.step1.outputs.GIT_TAG }}
+        tag_version: ${{ steps.prod.outputs.GIT_TAG }}
       steps:
-        - id: step1
+        - id: prod
           run: |
             GIT_TAG=$(echo "34567")
             echo "GIT_TAG=$GIT_TAG" >> $GITHUB_OUTPUT
