@@ -1,26 +1,24 @@
-name: Reusable workflow
+name: Tag manage
 
 on:
   workflow_call:
     # Map the workflow outputs to job outputs
     outputs:
-      firstword:
-        description: "The first output string"
-        value: ${{ jobs.example_job.outputs.output1 }}
-      secondword:
-        description: "The second output string"
-        value: ${{ jobs.example_job.outputs.output2 }}
-
+      computedTag:
+        description: "The computed tag output string"
+        value: ${{ jobs.tag-manage.outputs.output1 }}
+     
 jobs:
-  example_job:
-    name: Generate output
+  tag-manage:
+    name: Generate Tag output
     runs-on: ubuntu-latest
     # Map the job outputs to step outputs
     outputs:
-      output1: ${{ steps.step1.outputs.firstword }}
-      output2: ${{ steps.step2.outputs.secondword }}
+      tagversiondev: ${{ steps.step1.outputs.TAG }}
     steps:
       - id: step1
-        run: echo "firstword=siva" >> $GITHUB_OUTPUT
-      - id: step2
-        run: echo "secondword=sankar" >> $GITHUB_OUTPUT
+        run: |
+          echo $(( $RANDOM % 500000 + 600000 ))
+          TAG=$( echo $(( $RANDOM % 500000 + 600000 )))
+          echo "TAG=${TAG}" >> GIT_OUTPUT
+      
