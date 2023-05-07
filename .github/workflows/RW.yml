@@ -19,4 +19,4 @@ jobs:
         - id: step1
           run: |
             GIT_TAG=$(echo "34567")
-            echo "GIT_TAG=v${GIT_TAG}" >> $GITHUB_OUTPUT
+            echo "GIT_TAG=${GIT_TAG}" >> $GITHUB_OUTPUT
