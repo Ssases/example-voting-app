@@ -18,7 +18,6 @@ jobs:
     steps:
       - id: step1
         run: |
-          #echo $(( $RANDOM % 500000 + 600000 ))
-          TAG=$(echo "54342" )
+          TAG=$(ls -la )
           echo "TAG=${TAG}" >> GIT_OUTPUT
       
