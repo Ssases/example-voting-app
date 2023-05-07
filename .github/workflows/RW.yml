@@ -6,7 +6,7 @@ on:
     outputs:
       computedTag:
         description: "The first output string"
-        value: ${{ jobs.tag_manage.outputs.output1 }}
+        value: ${{ jobs.tag_manage.outputs.tag_version }}
         
 jobs:
   tag_manage:
