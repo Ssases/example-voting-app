@@ -6,18 +6,18 @@ on:
     outputs:
       computedTag:
         description: "The first output string"
-        value: ${{ jobs.tag_manage.outputs.tag_version }}
+        value: ${{ jobs.tagmanage.outputs.tagversion }}
         
 jobs:
-  tag_manage:
+  tagmanage:
       name: Generate output
       runs-on: ubuntu-latest
       # Map the job outputs to step outputs
       outputs:
-        tag_version: ${{ steps.prod.outputs.GIT_TAG }}
+        tagversion: ${{ steps.prod.outputs.GIT_TAG }}
       steps:
         - id: prod
           run: |
             GIT_TAG=123456
             echo "GIT_TAG=$GIT_TAG" >> GITHUB_OUTPUT
-            echo $GIT_TAG
+          
