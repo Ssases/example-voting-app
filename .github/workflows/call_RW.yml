@@ -22,6 +22,6 @@ jobs:
     uses: Ssases/reusable-workflows/.github/workflows/helm-process.yml@main
     with:
       helm_package: helm/example-voting-app
-      version: ${{needs.job1.outputs.tag}}
+      version: ${{needs.job1.outputs.computedTag_prod}}
     
  
