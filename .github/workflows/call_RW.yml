@@ -6,17 +6,17 @@ on:
 
 jobs:
   job1:
-    name: "Call other workflow"
+    name: "Tag-Manage"
     uses: Ssases/example-voting-app/.github/workflows/RW.yml@master
+  
   job2:
-    runs-on: ubuntu-latest
+    name: "Helm-Lint"
     needs: job1
-    steps:
-      - name: "Print tag"
-        run: echo ${{needs.job1.outputs.tag}}
+    uses: Ssases/reusable-workflows/.github/workflows/helm_lint.yaml@main
         
   job3:
-    needs: job1
+    name: "Helm Push"
+    needs: [job1, job2]
     uses: Ssases/reusable-workflows/.github/workflows/helm-process.yml@main
     with:
       helm_package: helm/example-voting-app
