@@ -20,4 +20,5 @@ jobs:
       with:
         helm_package: helm/example-voting-app
         version: 245671
-
+        run: echo ${{needs.job1.outputs.tag}}
+ 
