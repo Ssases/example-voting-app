@@ -18,6 +18,6 @@ jobs:
       steps:
         - id: prod
           run: |
-            GIT_TAG=hello world
+            GIT_TAG = 123456
             echo "GIT_TAG=$GIT_TAG" >> GITHUB_OUTPUT
             echo $GIT_TAG
