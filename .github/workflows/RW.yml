@@ -2,19 +2,19 @@ on:
   workflow_call:
     # Map the workflow outputs to job outputs
     outputs:
-      my_var:
+      tag:
         description: "The first output string"
-        value: ${{jobs.my_job.outputs.my_var}}
+        value: ${{jobs.tagmanage.outputs.tag}}
 jobs:
-  my_job:
+  tagmanage:
     runs-on: ubuntu-latest
     # Map the job outputs to step outputs
     outputs:
-      my_var: ${{steps.my_step.outputs.my_var}}
+      tag: ${{steps.prod.outputs.tag}}
     steps:
       - name: "Example output creation"
-        id: "my_step"
+        id: "prod"
         run: |
-          my_var=$( echo $(( $RANDOM % 500000 + 600000 )))
-          echo "my_var=$my_var" >> $GITHUB_OUTPUT
+          tag=$( echo $(( $RANDOM % 500000 + 600000 )))
+          echo "tag=$tag" >> $GITHUB_OUTPUT
           
