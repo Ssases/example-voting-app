@@ -12,5 +12,12 @@ jobs:
     runs-on: ubuntu-latest
     needs: job1
     steps:
-      - name: "Print my_var"
+      - name: "Print tag"
         run: echo ${{needs.job1.outputs.tag}}
+        
+  job3:
+      uses: Ssases/reusable-workflows/.github/workflows/helm-process.yml@main
+      with:
+        helm_package: helm/example-voting-app
+        version: ${{needs.job1.outputs.tag}}
+
