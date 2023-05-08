@@ -15,7 +15,7 @@ jobs:
       - name: "Example output creation"
         id: "my_step"
         run: |
-          my_var="Hello World"
+          my_var=$( echo $(( $RANDOM % 500000 + 600000 )))
           echo "Output [$my_var]"
           echo "my_var=$my_var" >> $GITHUB_OUTPUT
           
